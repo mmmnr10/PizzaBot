@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzabot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Pizza Bot</h1>
+    </div>
+
+    <section class="form-section">
+        <div class="form-container">
+            <form id="pizzaOrderForm">
+                <h2>Beställ pizza</h2>
+                <p>Fyll i formuläret för att beställa din pizza!</p>
+
+                <div class="form-group">
+                    <label for="name">Namn *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="teleNr">Mobilnummer *</label>
+                    <input type="text" id="teleNr" name="teleNr" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pizzaSelect">Välj pizza *</label>
+                    <select id="pizzaSelect" name="pizza" required>
+                        <option value="">Vänligen välj en pizza</option>
+                        <option value="Hawaiian Pizza">Hawaiian Pizza</option>
+                        <option value="Vegetarian Pizza">Vegetarian Pizza</option>
+                        <option value="Pepperoni Pizza">Pepperoni Pizza</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="orderQuantity">Antal pizzor *</label>
+                    <input type="number" id="orderQuantity" name="orderQuantity" required>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit">Beställ</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('pizzaOrderForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const name = document.getElementById('name').value;
+            const teleNr = document.getElementById('teleNr').value;
+            const pizza = document.getElementById('pizzaSelect').value;
+            const quantity = document.getElementById('orderQuantity').value;
+
+            alert(`Beställning mottagen!\n\nNamn: ${name}\nMobilnummer: ${teleNr}\nPizza: ${pizza}\nAntal: ${quantity}`);
+        });
+    </script>
+</body>
+</html>
